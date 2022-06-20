@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export default function GridButton({ isPlayed = false}) {
+export default function GridButton({ isPlayed = false, soundPlay}) {
   return (
-    <Wrapper isPlayed={isPlayed}>
+    <Wrapper isPlayed={isPlayed} onClick={soundPlay}>
 
     </Wrapper>
   );
