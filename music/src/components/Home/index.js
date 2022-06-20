@@ -2,10 +2,9 @@ import styled from "styled-components";
 
 export default function Home() {
   return (
-  <Wrapper>
-    {" "}
-   <h2>Home page</h2>
-  </Wrapper>
+    <Wrapper>
+      <h2>Home page</h2>
+    </Wrapper>
   );
 };
 
