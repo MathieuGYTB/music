@@ -69,11 +69,39 @@ export default function useSounds() {
   function soundPlay(note) {
     mySampler.current.triggerAttackRelease ([note], 4)
   };
+
+  function handleSampleChange(note, file) {
+    let fileUrl = URL.createObjectURL(file);
+    let buffer = new Tone.Buffer(fileUrl);
+    mySampler.current.add(note, buffer, () => 
+      alert("Sample succesfully changed"));
+  };
+
   const buttonsList = [
-  {soundPlay: () => soundPlay("C4"), isPlayed: isC4Played,},
-  {soundPlay: () => soundPlay("D#4"), isPlayed: isD4Played,},
-  {soundPlay: () => soundPlay("F#4"), isPlayed: isF4Played,},
-  {soundPlay: () => soundPlay("A4"), isPlayed: isA4Played,},
+  {soundPlay: () => 
+    soundPlay("C4"), 
+    isPlayed: isC4Played, 
+    id: "C4", 
+    handleSampleChange: (e) => handleSampleChange("C4", e.target.files[0]),
+  },
+  {soundPlay: () => 
+    soundPlay("D#4"), 
+    isPlayed: isD4Played, 
+    id: "D4",
+    handleSampleChange: (e) => handleSampleChange("D#4", e.target.files[0]),
+  },
+  {soundPlay: () => 
+    soundPlay("F#4"), 
+    isPlayed: isF4Played, 
+    id: "F4",
+    handleSampleChange: (e) => handleSampleChange("F#4", e.target.files[0]),
+  },
+  {soundPlay: () => 
+    soundPlay("A4"), 
+    isPlayed: isA4Played, 
+    id: "A4",
+    handleSampleChange: (e) => handleSampleChange("A4", e.target.files[0]),
+  },
 ];
 
   return {buttonsList};
