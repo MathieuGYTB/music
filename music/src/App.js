@@ -1,7 +1,7 @@
-
 import './App.css';
+import Layout from 'components/ui/layout';
 
 export default function App() {
-  return <div><h1>hello</h1></div>
+  return <Layout><h1>hello</h1></Layout>
 }
 
